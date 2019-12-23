@@ -1,0 +1,44 @@
+<html>
+<head>
+</head>
+<body>
+ <%@ page import="java.sql.*" %>
+  <%
+  try{
+  //String did=request.getParameter("did");
+  String dn=request.getParameter("dname");
+  String pwd=request.getParameter("pwd");
+  String add=request.getParameter("add");  
+  int no=Integer.parseInt(request.getParameter("age"));
+  String spec=request.getParameter("spec");
+  String quali=request.getParameter("quali");
+  Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+  Connection con=DriverManager.getConnection("jdbc:odbc:health","health","health");
+  PreparedStatement pstm=con.prepareStatement("insert into doctor_details values(?,?,?,?,?,?,?,?,?,?)");
+  Statement stmt=con.createStatement();
+  ResultSet rs=stmt.executeQuery("select * from doctor_details");
+  int count=0;
+  while(rs.next())
+	{count++;}
+  pstm.setString(1,"DID"+Integer.toString(count+1));
+  pstm.setString(2,dn);
+  pstm.setString(3,pwd);
+  pstm.setString(4,add);
+  pstm.setInt(5,no);
+  pstm.setString(6,spec);
+  pstm.setString(7,quali);
+  pstm.setInt(8,0);
+  pstm.setString(9,"");
+  pstm.setString(10,"");
+  pstm.executeUpdate();
+  pstm.close();
+  con.close();
+  response.sendRedirect("./success.html");
+}
+catch(Exception e)
+{
+out.println("Error"+e);
+}
+  %>
+</body>
+</html>

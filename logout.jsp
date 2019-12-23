@@ -1,0 +1,9 @@
+<html>
+<head>
+</head>
+<body>
+<%
+response.sendRedirect("./Index.html");
+%>
+</body>
+</html>

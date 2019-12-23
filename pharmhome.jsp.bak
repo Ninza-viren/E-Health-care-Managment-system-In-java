@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>
+Pharmacy Home
+</title>
+</head>
+<body bgcolor="#f09970">
+<br>
+<br>
+
+<%@ page import="java.sql.*" %>
+<%
+String phname=(String)session.getAttribute("uname");
+Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+Connection con=DriverManager.getConnection("jdbc:odbc:health","health","health");
+PreparedStatement pstm=con.prepareStatement("select * from diagnostic_details where pharmacy_id=?");
+pstm.setString(1,phname);
+ResultSet rs=pstm.executeQuery();
+int no=0;
+%><h2>
+<center>Welcome&nbsp;<%out.println(phname)%></center></h2>
+<br>
+<br>
+<center>
+<form action="./pharmdaig.jsp" method="post">
+<p>Select pid to get diagnostic report:<select name="pid5">
+<%
+while(rs.next())
+{
+String pid1=rs.getString(1);
+if(pid1!=null){
+out.println("<option>"+pid1);}
+no++;
+}
+%>
+</select>
+<input type="submit" value="submit">
+</center>
+</body>
+</html>

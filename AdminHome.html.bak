@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <TITLE>Administartor</TITLE>
+  <META NAME="Generator" CONTENT="EditPlus">
+  <META NAME="Author" CONTENT="">
+  <META NAME="Keywords" CONTENT="">
+  <META NAME="Description" CONTENT="">
+ </HEAD>
+ <BODY bgcolor="#f09970">
+<h1><center>Welcome Administarator</center></h1>
+<table>
+<tr>
+<td rowspan=8><img src="./images/medicine.jpg"></img>
+</tr>
+<tr>
+<td><a href="cna.html"><b>Create New Admin</a>
+</tr>
+<tr>
+<td><a href="sp.jsp"><b>Shedule Patients</a>
+</tr>
+<tr>
+<td><a href=""><b>Invite Doctors</a>
+</tr>
+<tr>
+<td><a href=""><b>Validate Patient Category</a>
+</tr>
+<tr>
+<td><a href=""><b>Generate Bill</a>
+</tr>
+<tr>
+<td><a href="logout.jsp">Logout</a>
+</tr>
+
+</table>
+</BODY>
+</HTML>
